@@ -268,56 +268,108 @@
     text-transform:uppercase;
     margin-bottom:22px;
   }
-  .hero-stat{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid rgba(250,245,236,0.16);
-  }
-  .hero-stat:last-child{border-bottom:none;}
-  .hero-stat .num{font-size:1.5rem;font-weight:bold;color:var(--white);}
-  .hero-stat .lbl{font-size:0.82rem;color:rgba(250,245,236,0.75);max-width:180px;text-align:right;}
 
-  /* ---------- hero visual ---------- */
-  .hero-grid{align-items:center;}
-  .hero-visual-col{
-    position:relative;
+  /* ---------- hero collage + stat strip ---------- */
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
   }
-  .hero-visual{
+  .hero-collage{
+    position:relative;
+    padding:0 20px 40px 0;
+  }
+  .hero-collage .ring{
+    position:absolute;
+    top:-28px;right:8px;
+    width:96px;height:96px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    z-index:0;
+  }
+  .hero-img-main{
     position:relative;
     border-radius:6px;
     overflow:hidden;
     box-shadow:var(--shadow);
     aspect-ratio:4/5;
+    z-index:1;
   }
-  .hero-visual img{
-    width:100%;height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .hero-visual::after{
+  .hero-img-main img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-img-main::after{
     content:"";
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(49,14,25,0) 40%, rgba(49,14,25,0.55) 100%);
+    background:linear-gradient(180deg, rgba(49,14,25,0) 55%, rgba(49,14,25,0.4) 100%);
   }
-  .hero-visual .ring{
+  .hero-img-accent{
     position:absolute;
-    top:-26px;left:-26px;
-    width:110px;height:110px;
-    border:1px solid var(--gold);
-    border-radius:50%;
-    z-index:0;
-  }
-  .hero-panel{
-    position:relative;
-    margin-top:-70px;
-    margin-left:24px;
-    margin-right:-16px;
-    max-width:340px;
+    left:-8px;
+    bottom:0;
+    width:48%;
+    aspect-ratio:1/1;
+    border-radius:6px;
+    overflow:hidden;
+    border:6px solid var(--cream);
+    box-shadow:var(--shadow);
     z-index:2;
   }
+  .hero-img-accent img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-badge{
+    position:absolute;
+    right:0;
+    bottom:14px;
+    background:var(--white);
+    border-radius:4px;
+    box-shadow:var(--shadow);
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    z-index:3;
+  }
+  .hero-badge .dot{
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+  }
+  .hero-badge span{font-size:0.8rem;font-weight:bold;color:var(--burgundy-dark);white-space:nowrap;}
+
+  .hero-stats-strip{
+    margin-top:60px;
+    background:var(--white);
+    border-radius:6px;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    position:relative;
+    z-index:3;
+  }
+  .hero-stat-item{
+    padding:28px 20px;
+    text-align:center;
+    border-right:1px solid var(--line);
+  }
+  .hero-stat-item:last-child{border-right:none;}
+  .hero-stat-item .num{
+    font-size:1.5rem;
+    font-weight:bold;
+    color:var(--burgundy);
+    display:block;
+    margin-bottom:6px;
+  }
+  .hero-stat-item .lbl{font-size:0.78rem;color:var(--ink-soft);}
+
   @media (max-width:980px){
-    .hero-panel{margin-left:0;margin-right:0;max-width:100%;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-collage{max-width:440px;margin:0 auto;padding-right:20px;}
+  }
+  @media (max-width:640px){
+    .hero-stats-strip{grid-template-columns:repeat(2,1fr);}
+    .hero-stat-item{border-bottom:1px solid var(--line);}
+    .hero-stat-item:nth-child(2n){border-right:none;}
+    .hero-badge{display:none;}
   }
 
   /* ---------- about split image ---------- */
@@ -742,7 +794,6 @@
     .nav-cta{display:inline-block;width:fit-content;}
     .menu-toggle{display:flex;}
     .hero-grid{grid-template-columns:1fr;}
-    .hero-panel{max-width:420px;}
   }
 
   @media (max-width:640px){
@@ -966,6 +1017,70 @@ nav a.active::after{width:100%;}
   margin-top:20px;
 }
 
+
+  /* ---------- section banner image ---------- */
+  .section-banner{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:44px;
+  }
+  .section-banner img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+  }
+  .section-banner::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(49,14,25,0.1) 0%, rgba(49,14,25,0.55) 100%);
+  }
+  .section-banner-caption{
+    position:absolute;
+    left:32px;bottom:20px;
+    z-index:2;
+    color:var(--white);
+    font-size:0.95rem;
+    font-weight:bold;
+    letter-spacing:0.02em;
+  }
+
+  .contact-photo{
+    width:64px;height:64px;
+    border-radius:50%;
+    overflow:hidden;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+  }
+  .contact-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  /* ---------- made-by credit ---------- */
+  .made-by{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:200;
+    background:rgba(49,14,25,0.9);
+    color:rgba(250,245,236,0.85);
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+    padding:8px 14px;
+    border-radius:20px;
+    border:1px solid rgba(216,188,130,0.35);
+    backdrop-filter:blur(6px);
+    transition:background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .made-by:hover{
+    background:var(--burgundy-dark);
+    color:var(--gold-light);
+    transform:translateY(-2px);
+  }
+  .made-by span{color:var(--gold-light);font-weight:bold;}
+  @media (max-width:640px){
+    .made-by{font-size:0.66rem;padding:7px 12px;right:12px;bottom:12px;}
+  }
 </style>
 </head>
 <body>
@@ -996,39 +1111,47 @@ nav a.active::after{width:100%;}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="reveal">
-        <span class="eyebrow">Member-Based Welfare Support</span>
-        <h1>Being with you at <em>life's most important moments</em></h1>
-        <p class="lead">Mwanga Comforts stands with families through hospitalization, childbirth, loss of a loved one, and education needs — so you are supported with dignity, care, and peace of mind.</p>
-        <div class="btn-row">
-          <a href="plans.html" class="btn btn-primary">Explore Our Plans</a>
-          <a href="contact.html" class="btn btn-ghost">Get In Touch</a>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Member-Based Welfare Support</span>
+          <h1>Being with you at <em>life's most important moments</em></h1>
+          <p class="lead">Mwanga Comforts stands with families through hospitalization, childbirth, loss of a loved one, and education needs — so you are supported with dignity, care, and peace of mind.</p>
+          <div class="btn-row">
+            <a href="plans.html" class="btn btn-primary">Explore Our Plans</a>
+            <a href="contact.html" class="btn btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-collage reveal">
+          <div class="ring"></div>
+          <div class="hero-img-main">
+            <img src="images/3.jpeg" alt="A family supported by Mwanga Comforts">
+          </div>
+          <div class="hero-img-accent">
+            <img src="images/4.jpeg" alt="A moment of care and support">
+          </div>
+          <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Tuangaze Mbele Pamoja</span>
+          </div>
         </div>
       </div>
-      <div class="hero-visual-col reveal">
-        <div class="hero-visual">
-          <div class="ring"></div>
-          <img src="images/logo.png" alt="A family supported by Mwanga Comforts">
+      <div class="hero-stats-strip reveal">
+        <div class="hero-stat-item">
+          <span class="num">4</span>
+          <span class="lbl">Cover Plans</span>
         </div>
-        <div class="hero-panel">
-          <h3>Welfare Support at a Glance</h3>
-          <div class="hero-stat">
-            <span class="num">4</span>
-            <span class="lbl">Cover plans — Afya, Farewell, Hybrid and Masomo</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">Ksh 112,000</span>
-            <span class="lbl">Total estimated cash value under Farewell Cover</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">Ksh 200,000</span>
-            <span class="lbl">Maximum compensation available under the Afya Plan</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">Ksh 200</span>
-            <span class="lbl">One-time registration fee to become a member</span>
-          </div>
+        <div class="hero-stat-item">
+          <span class="num">Ksh 112,000</span>
+          <span class="lbl">Farewell Cover Value</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="num">Ksh 200,000</span>
+          <span class="lbl">Max. Afya Compensation</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="num">Ksh 200</span>
+          <span class="lbl">Registration Fee</span>
         </div>
       </div>
     </div>
@@ -1039,7 +1162,7 @@ nav a.active::after{width:100%;}
     <div class="container about-grid">
       <div class="about-image reveal">
         <div class="frame"></div>
-        <img src="images/logo.png" alt="Mwanga Comforts members and community">
+        <img src="images/5.jpeg" alt="Mwanga Comforts members and community">
       </div>
       <div class="about-copy reveal">
         <div class="section-head">
@@ -1081,7 +1204,7 @@ nav a.active::after{width:100%;}
         </div>
       </div>
       <div class="moments-photo reveal">
-        <img src="images/logo.png" alt="Tuangaze mbele pamoja — families supported together">
+        <img src="images/6.jpeg" alt="Tuangaze mbele pamoja — families supported together">
         <div class="moments-photo-caption">
           <span class="eyebrow">Tuangaze Mbele Pamoja</span>
           <h3>Let's shine forward, together</h3>
@@ -1107,19 +1230,19 @@ nav a.active::after{width:100%;}
           <p>Supports members during hospitalization and maternity by helping cover inpatient and maternal care costs. The Maternity add-on provides pampers and a Ksh 5,000 gift hamper for mother and baby after delivery.</p>
         </div>
         <div class="plan-card">
-          <div class="plan-thumb"><img src="images/logo.png" alt="Mwanga Farewell Cover — bereavement support"></div>
+          <div class="plan-thumb"><img src="images/7.jpeg" alt="Mwanga Farewell Cover — bereavement support"></div>
           <span class="plan-num">02 — Mwanga Farewell Cover</span>
           <h3>Bereavement Support</h3>
           <p>Covers essential funeral and burial expenses — from body preparation and transport to tents and seating — so families can give their loved ones a dignified send-off without the burden of sudden expenses.</p>
         </div>
         <div class="plan-card">
-          <div class="plan-thumb"><img src="images/logo.png" alt="Mwanga Hybrid Cover — combined protection"></div>
+          <div class="plan-thumb"><img src="images/8.jpeg" alt="Mwanga Hybrid Cover — combined protection"></div>
           <span class="plan-num">03 — Mwanga Hybrid Cover</span>
           <h3>Combined Protection</h3>
           <p>Brings together the Afya Cover and the Farewell Cover in one plan, providing broader protection under a single membership across hospitalization and final arrangements.</p>
         </div>
         <div class="plan-card">
-          <div class="plan-thumb"><img src="images/logo.png" alt="Masomo Cover — education support"></div>
+          <div class="plan-thumb"><img src="images/9.jpeg" alt="Masomo Cover — education support"></div>
           <span class="plan-num">04 — Masomo Cover</span>
           <h3>Education Support</h3>
           <p>Helps families manage education-related costs and plan for their children's learning journey, easing financial strain on parents and guardians while promoting education continuity.</p>
@@ -1134,7 +1257,7 @@ nav a.active::after{width:100%;}
     <div class="container inventory-wrap">
       <div class="inventory-copy reveal">
         <div class="farewell-image">
-          <img src="images/logo.png" alt="Dignified support during bereavement">
+          <img src="images/10.jpeg" alt="Dignified support during bereavement">
         </div>
         <span class="eyebrow">Mwanga Farewell Cover</span>
         <h2>Dignity in every detail</h2>
@@ -1163,6 +1286,10 @@ nav a.active::after{width:100%;}
   <!-- PRICING -->
   <section id="pricing">
     <div class="container">
+      <div class="section-banner reveal">
+        <img src="images/13.jpeg" alt="A family reviewing their membership plan">
+        <span class="section-banner-caption">Find the grade that fits your household</span>
+      </div>
       <div class="section-head center reveal">
         <span class="eyebrow">Membership Categories</span>
         <h2>Monthly contributions by grade</h2>
@@ -1199,6 +1326,10 @@ nav a.active::after{width:100%;}
   <!-- MEMBERSHIP CONDITIONS -->
   <section id="membership" class="alt-bg">
     <div class="container">
+      <div class="section-banner reveal">
+        <img src="images/14.jpeg" alt="Mwanga Comforts logo">
+        <span class="section-banner-caption">Simple registration, real peace of mind</span>
+      </div>
       <div class="section-head center reveal">
         <span class="eyebrow">Membership Conditions</span>
         <h2>Joining Mwanga Comforts</h2>
@@ -1299,6 +1430,9 @@ nav a.active::after{width:100%;}
         <p>Reach out to register as a member, ask about a plan, or get help with a claim.</p>
       </div>
       <div class="reveal">
+        <div class="contact-photo">
+          <img src="images/logo.png" alt="Our support team ready to help">
+        </div>
         <div class="contact-item">
           <div class="ic">T</div>
           <div><h4>Phone</h4><p>0750 858 282</p></div>
@@ -1325,7 +1459,7 @@ nav a.active::after{width:100%;}
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/logo.png" alt="Mwanga Comforts logo">
+        <img src="images/logo.png" alt="">
         <span>Mwanga Comforts</span>
       </div>
       <div class="footer-social">
@@ -1336,7 +1470,7 @@ nav a.active::after{width:100%;}
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Mwanga Comforts. All rights reserved.</span>
-      <span>Made by LincornAPPS</span>
+      <span>Tuangaze Mbele Pamoja — Let's Shine Forward, Together.</span>
     </div>
   </div>
 </footer>
@@ -1401,6 +1535,8 @@ nav a.active::after{width:100%;}
   }
 
 </script>
+
+<a href="https://lincorn.dpdns.org" target="_blank" rel="noopener" class="made-by">Made by <span>LincornApps</span></a>
 
 </body>
 </html>

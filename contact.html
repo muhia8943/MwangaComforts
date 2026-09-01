@@ -842,6 +842,204 @@ nav a.active::after{width:100%;}
   margin-top:20px;
 }
 
+
+  /* ---------- made-by credit ---------- */
+  .made-by{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:200;
+    background:rgba(49,14,25,0.9);
+    color:rgba(250,245,236,0.85);
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+    padding:8px 14px;
+    border-radius:20px;
+    border:1px solid rgba(216,188,130,0.35);
+    backdrop-filter:blur(6px);
+    transition:background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .made-by:hover{
+    background:var(--burgundy-dark);
+    color:var(--gold-light);
+    transform:translateY(-2px);
+  }
+  .made-by span{color:var(--gold-light);font-weight:bold;}
+  @media (max-width:640px){
+    .made-by{font-size:0.66rem;padding:7px 12px;right:12px;bottom:12px;}
+  }
+  /* ---------- registration form ---------- */
+  .reg-form-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    box-shadow:var(--shadow);
+    padding:44px 40px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  @media (max-width:640px){.reg-form-card{padding:30px 20px;}}
+
+  .reg-section{
+    padding:34px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .reg-section:first-child{padding-top:0;}
+  .reg-section:last-child{border-bottom:none;padding-bottom:0;}
+
+  .reg-section-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .reg-section-head .snum{
+    width:38px;height:38px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    color:var(--burgundy);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:bold;
+    font-size:0.92rem;
+  }
+  .reg-section-head h3{font-size:1.08rem;color:var(--burgundy-dark);}
+  .reg-section-head .sub{font-size:0.82rem;color:var(--ink-soft);margin-top:2px;}
+
+  .reg-note{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    background:var(--cream-alt);
+    border-left:2px solid var(--gold);
+    padding:10px 16px;
+    margin-top:6px;
+    margin-bottom:18px;
+  }
+
+  /* package radio pills */
+  .package-options{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .package-pill{position:relative;}
+  .package-pill input{
+    position:absolute;
+    opacity:0;
+    width:100%;height:100%;
+    cursor:pointer;
+    margin:0;
+  }
+  .package-pill label{
+    display:block;
+    padding:14px 22px;
+    border:1px solid var(--line);
+    border-radius:24px;
+    font-size:0.88rem;
+    font-weight:bold;
+    color:var(--charcoal);
+    background:var(--cream);
+    cursor:pointer;
+    transition:all 0.3s var(--ease);
+  }
+  .package-pill input:checked + label{
+    background:var(--burgundy);
+    border-color:var(--burgundy);
+    color:var(--white);
+  }
+  .package-pill label:hover{border-color:var(--gold);}
+
+  /* dependants table */
+  .dep-table-wrap{overflow-x:auto;border-radius:3px;border:1px solid var(--line);}
+  .dep-table{width:100%;min-width:640px;border-collapse:collapse;}
+  .dep-table thead th{
+    background:var(--cream-alt);
+    color:var(--burgundy-dark);
+    font-size:0.75rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:10px 10px;
+    text-align:left;
+    white-space:nowrap;
+  }
+  .dep-table td{padding:6px;border-top:1px solid var(--line);}
+  .dep-table td input{
+    width:100%;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    font-family:inherit;
+    font-size:0.85rem;
+    background:var(--white);
+  }
+  .dep-table td input:focus{outline:none;border-color:var(--gold);}
+  .dep-table td.rownum{
+    text-align:center;
+    font-weight:bold;
+    color:var(--gold);
+    font-size:0.85rem;
+    width:34px;
+  }
+  .dep-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:14px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .add-row-btn{
+    background:none;
+    border:1px solid var(--burgundy);
+    color:var(--burgundy);
+    padding:9px 18px;
+    border-radius:20px;
+    font-family:inherit;
+    font-size:0.82rem;
+    cursor:pointer;
+    transition:all 0.3s var(--ease);
+  }
+  .add-row-btn:hover{background:var(--burgundy);color:var(--white);}
+  .add-row-btn:disabled{opacity:0.4;cursor:not-allowed;background:none;color:var(--burgundy);}
+  .dep-counter{font-size:0.78rem;color:var(--ink-soft);}
+
+  /* file upload */
+  .file-upload{
+    border:1px dashed var(--line);
+    border-radius:3px;
+    padding:18px;
+    text-align:center;
+    background:var(--cream);
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:border-color 0.3s var(--ease);
+  }
+  .file-upload:hover{border-color:var(--gold);}
+  .file-upload input{display:none;}
+  .file-upload .fname{color:var(--burgundy);font-weight:bold;margin-top:4px;display:block;}
+
+  /* declaration checkbox */
+  .checkbox-row{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .checkbox-row input{
+    margin-top:3px;
+    width:18px;height:18px;
+    accent-color:var(--burgundy);
+    flex-shrink:0;
+  }
+  .checkbox-row label{
+    font-size:0.88rem;
+    color:var(--charcoal);
+    line-height:1.55;
+  }
+  .checkbox-row a{color:var(--burgundy);font-weight:bold;}
+
 </style>
 </head>
 <body>
@@ -873,9 +1071,9 @@ nav a.active::after{width:100%;}
   <section class="page-hero">
     <div class="container reveal">
       <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
-      <span class="eyebrow">Get In Touch</span>
+      <span class="eyebrow">Get In Touch &amp; Register</span>
       <h1>We're here to walk with your family</h1>
-      <p class="lead">Reach out to register as a member, ask about a plan, or get help with a claim. Our team responds during business hours.</p>
+      <p class="lead">Reach out with a question, or complete the membership registration form below to join Mwanga Comforts. Our team responds during business hours.</p>
     </div>
   </section>
 
@@ -909,44 +1107,212 @@ nav a.active::after{width:100%;}
         </div>
       </div>
 
-      <div class="form-card reveal">
-        <h3>Send us a message</h3>
-        <p class="form-sub">Fill in the form below and a member of our team will get back to you.</p>
-        <form onsubmit="event.preventDefault(); this.reset(); document.getElementById('formSuccess').style.display='block';">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">Full Name</label>
-              <input type="text" id="fname" name="fname" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label for="fphone">Phone Number</label>
-              <input type="tel" id="fphone" name="fphone" placeholder="07XX XXX XXX" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="femail">Email Address</label>
-            <input type="email" id="femail" name="femail" placeholder="you@example.com">
-          </div>
-          <div class="form-group">
-            <label for="fplan">I'm Interested In</label>
-            <select id="fplan" name="fplan">
-              <option>Mwanga Afya Cover</option>
-              <option>Mwanga Farewell Cover</option>
-              <option>Mwanga Hybrid Cover</option>
-              <option>Masomo Cover</option>
-              <option>General Enquiry</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="fmessage">Message</label>
-            <textarea id="fmessage" name="fmessage" placeholder="Tell us how we can help"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send Message</button>
-          <p class="form-note" id="formSuccess" style="display:none;color:var(--burgundy);font-weight:bold;">Thank you — your message has been noted. We'll be in touch shortly.</p>
-          <p class="form-note">This form does not send automatically — connect it to your preferred email or CRM service to activate submissions.</p>
-        </form>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP REGISTRATION FORM -->
+  <section class="alt-bg" id="register">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Membership Registration Form</span>
+        <h2>Join Mwanga Comforts</h2>
+        <p>Complete every section below. Original copies of your National ID must still be produced in person during final registration.</p>
       </div>
 
+      <div class="reg-form-card reveal">
+        <form onsubmit="event.preventDefault(); this.reset(); document.getElementById('regSuccess').style.display='block'; window.scrollTo({top:document.getElementById('regSuccess').offsetTop - 120, behavior:'smooth'});">
+
+          <!-- SECTION 1 -->
+          <div class="reg-section">
+            <div class="reg-section-head">
+              <div class="snum">1</div>
+              <div><h3>Pick Your Package</h3><div class="sub">Choose one cover plan and your membership grade</div></div>
+            </div>
+
+            <div class="package-options">
+              <div class="package-pill">
+                <input type="radio" name="package" id="pkgAfya" value="Mwanga Afya Cover" required>
+                <label for="pkgAfya">Afya Plan</label>
+              </div>
+              <div class="package-pill">
+                <input type="radio" name="package" id="pkgFarewell" value="Mwanga Farewell Cover">
+                <label for="pkgFarewell">Farewell Plan</label>
+              </div>
+              <div class="package-pill">
+                <input type="radio" name="package" id="pkgHybrid" value="Mwanga Hybrid Cover">
+                <label for="pkgHybrid">Hybrid (Afya + Farewell)</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="grade">Membership Grade</label>
+              <select id="grade" name="grade" required>
+                <option value="">Select your grade</option>
+                <option>Grade 1 — Singles</option>
+                <option>Grade 2 — Couples</option>
+                <option>Grade 3 — Nuclear Family</option>
+                <option>Grade 4 — Nuclear + Parents (Principal)</option>
+                <option>Grade 5 — Nuclear + Both Spouse Parents</option>
+                <option>Grade 6 — Singles 70+ years</option>
+                <option>Grade 7 — Couples 70+ years</option>
+                <option>Grade 8 — Nuclear + Principal Parents 70+ years</option>
+                <option>Grade 9 — Nuclear + Both Spouse Parents 70+ years</option>
+              </select>
+            </div>
+            <p class="reg-note">Not sure which grade fits your household? See the full <a href="pricing.html" style="color:var(--burgundy);font-weight:bold;">pricing page</a>. Your Member Number will be assigned upon approval.</p>
+          </div>
+
+          <!-- SECTION 2 -->
+          <div class="reg-section">
+            <div class="reg-section-head">
+              <div class="snum">2</div>
+              <div><h3>Primary Member Details</h3><div class="sub">Must be 18 years and above</div></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pName">Full Name</label>
+                <input type="text" id="pName" name="pName" placeholder="Full name" required>
+              </div>
+              <div class="form-group">
+                <label for="pDob">Date of Birth</label>
+                <input type="date" id="pDob" name="pDob" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pGender">Gender</label>
+                <select id="pGender" name="pGender" required>
+                  <option value="">Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pId">National ID Number</label>
+                <input type="text" id="pId" name="pId" placeholder="National ID number" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pMarital">Marital Status</label>
+                <select id="pMarital" name="pMarital">
+                  <option value="">Select</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Divorced</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pContact">Contact (Phone Number)</label>
+                <input type="tel" id="pContact" name="pContact" placeholder="07XX XXX XXX" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pVillage">Village / Town</label>
+              <input type="text" id="pVillage" name="pVillage" placeholder="Your village or town">
+            </div>
+
+            <div class="form-group">
+              <label>Copy of National ID</label>
+              <label class="file-upload" for="pIdFile">
+                Click to upload a copy of your National ID (front and back)
+                <input type="file" id="pIdFile" name="pIdFile" accept="image/*,.pdf" onchange="document.getElementById('idFileName').textContent = this.files.length ? this.files[0].name : '';">
+                <span class="fname" id="idFileName"></span>
+              </label>
+              <p class="reg-note" style="margin-top:10px;">Original copies of your National ID must still be produced in person during registration.</p>
+            </div>
+          </div>
+
+          <!-- SECTION 3 -->
+          <div class="reg-section">
+            <div class="reg-section-head">
+              <div class="snum">3</div>
+              <div><h3>Dependants</h3><div class="sub">Add each dependant who will be covered under your membership</div></div>
+            </div>
+
+            <div class="dep-table-wrap">
+              <table class="dep-table">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Full Name</th>
+                    <th>Relationship</th>
+                    <th>Date of Birth</th>
+                    <th>ID No.</th>
+                    <th>Mobile No.</th>
+                  </tr>
+                </thead>
+                <tbody id="depRows"></tbody>
+              </table>
+            </div>
+            <div class="dep-controls">
+              <button type="button" class="add-row-btn" id="addDepBtn" onclick="addDependantRow()">+ Add Dependant</button>
+              <span class="dep-counter" id="depCounter">0 of 12 added — maximum number of children is 6</span>
+            </div>
+          </div>
+
+          <!-- SECTION 4 -->
+          <div class="reg-section">
+            <div class="reg-section-head">
+              <div class="snum">4</div>
+              <div><h3>Next of Kin Details</h3><div class="sub">Required for all members</div></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="kName">Full Name</label>
+                <input type="text" id="kName" name="kName" placeholder="Next of kin's full name" required>
+              </div>
+              <div class="form-group">
+                <label for="kRelationship">Relationship</label>
+                <input type="text" id="kRelationship" name="kRelationship" placeholder="e.g. Spouse, Sibling, Child">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="kContact">Contact</label>
+                <input type="tel" id="kContact" name="kContact" placeholder="07XX XXX XXX" required>
+              </div>
+              <div class="form-group">
+                <label for="kId">ID No.</label>
+                <input type="text" id="kId" name="kId" placeholder="National ID number">
+              </div>
+            </div>
+            <p class="reg-note">For all members over 70 years registering, the next of kin must be a member of Mwanga Comforts and must remain active always.</p>
+          </div>
+
+          <!-- SECTION 5 -->
+          <div class="reg-section">
+            <div class="reg-section-head">
+              <div class="snum">5</div>
+              <div><h3>Declaration</h3><div class="sub">Please confirm before submitting</div></div>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="declare" name="declare" required>
+              <label for="declare">I hereby declare that I have read and understood the <a href="faq.html">terms and conditions</a> of Mwanga Comforts appearing on this website, and accept the same. I confirm that I have submitted the correct information to the best of my knowledge.</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dName">Full Name (as declaration signatory)</label>
+                <input type="text" id="dName" name="dName" placeholder="Full name" required>
+              </div>
+              <div class="form-group">
+                <label for="dDate">Date</label>
+                <input type="date" id="dDate" name="dDate" required>
+              </div>
+            </div>
+
+            <button type="submit" class="form-submit">Submit Registration</button>
+            <p class="form-note" id="regSuccess" style="display:none;color:var(--burgundy);font-weight:bold;">Thank you — your registration has been noted. Our team will contact you to complete the process and collect your original National ID copies.</p>
+            <p class="form-note">This form does not send automatically — connect it to your preferred email or CRM service to activate submissions.</p>
+          </div>
+
+        </form>
+      </div>
     </div>
   </section>
 
@@ -986,12 +1352,37 @@ nav a.active::after{width:100%;}
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Mwanga Comforts. All rights reserved.</span>
-      <span>Made by LincornAPPS</span>
+      <span>Tuangaze Mbele Pamoja — Let's Shine Forward, Together.</span>
     </div>
   </div>
 </footer>
 
 <script>
+  // dependants table
+  const MAX_DEP = 12;
+  let depCount = 0;
+  function addDependantRow(){
+    if(depCount >= MAX_DEP) return;
+    depCount++;
+    const tbody = document.getElementById('depRows');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="rownum">${depCount}</td>
+      <td><input type="text" name="depName${depCount}" placeholder="Full name"></td>
+      <td><input type="text" name="depRel${depCount}" placeholder="Relationship"></td>
+      <td><input type="date" name="depDob${depCount}"></td>
+      <td><input type="text" name="depId${depCount}" placeholder="ID no."></td>
+      <td><input type="tel" name="depMobile${depCount}" placeholder="Mobile no."></td>
+    `;
+    tbody.appendChild(tr);
+    document.getElementById('depCounter').textContent = depCount + ' of ' + MAX_DEP + ' added — maximum number of children is 6';
+    document.getElementById('addDepBtn').disabled = depCount >= MAX_DEP;
+  }
+  // start with 3 blank rows for convenience
+  document.addEventListener('DOMContentLoaded', ()=>{
+    for(let i=0;i<3;i++) addDependantRow();
+  });
+
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
   const io = new IntersectionObserver((entries)=>{
@@ -1051,5 +1442,7 @@ nav a.active::after{width:100%;}
   }
 
 </script>
+<a href="https://lincorn.dpdns.org" target="_blank" rel="noopener" class="made-by">Made by <span>LincornApps</span></a>
+
 </body>
 </html>
