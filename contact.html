@@ -143,11 +143,11 @@
   }
   nav ul{
     display:flex;
-    gap:30px;
+    gap:22px;
     list-style:none;
   }
   nav a{
-    font-size:0.9rem;
+    font-size:0.86rem;
     color:var(--charcoal);
     position:relative;
     padding-bottom:4px;
@@ -1026,6 +1026,7 @@ nav a.active::after{width:100%;}
   .checkbox-row a{color:var(--burgundy);font-weight:bold;}
 
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -1041,6 +1042,8 @@ nav a.active::after{width:100%;}
         <li><a href="about.html">About</a></li>
         <li><a href="plans.html">Plans</a></li>
         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html" class="nav-cta active">Become a Member</a></li>
       </ul>
@@ -1066,9 +1069,16 @@ nav a.active::after{width:100%;}
     <div class="container contact-layout">
 
       <div class="reveal">
+        <div class="contact-photo">
+          <img src="images/logo.png" alt="Our support team ready to help">
+        </div>
         <div class="contact-item">
           <div class="ic">T</div>
-          <div><h4>Phone</h4><p>0750 858 282</p></div>
+          <div><h4>Phone</h4><p>0750 858 282 | 0181 487 180</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">W</div>
+          <div><h4>WhatsApp</h4><p>0723117592</p></div>
         </div>
         <div class="contact-item">
           <div class="ic">@</div>
@@ -1076,15 +1086,15 @@ nav a.active::after{width:100%;}
         </div>
         <div class="contact-item">
           <div class="ic">W</div>
-          <div><h4>Website</h4><p>www.mwangacomforts.co.ke</p></div>
+          <div><h4>Tiktok</h4><p>Mwanga comforts Kenya</p></div>
         </div>
         <div class="contact-item">
-          <div class="ic">S</div>
-          <div><h4>Social</h4><p>Mwanga Comforts Kenya — TikTok, Instagram &amp; Facebook</p></div>
+          <div class="ic">F</div>
+          <div><h4>Facebook</h4><p>Mwanga Comforts</p></div>
         </div>
-        <div class="contact-item" style="border-bottom:none;">
-          <div class="ic">P</div>
-          <div><h4>Payments</h4><p>M-Pesa Paybill 880100, Account 231175</p></div>
+        <div class="contact-item">
+          <div class="ic">A</div>
+          <div><h4>Address</h4><p>Midtown Towers, 2nd Floor Room 69, Nairobi CBD</p></div>
         </div>
       </div>
 
@@ -1101,7 +1111,7 @@ nav a.active::after{width:100%;}
       </div>
 
       <div class="reg-form-card reveal">
-        <form onsubmit="event.preventDefault(); this.reset(); document.getElementById('regSuccess').style.display='block'; window.scrollTo({top:document.getElementById('regSuccess').offsetTop - 120, behavior:'smooth'});">
+        <form id="registrationForm" onsubmit="sendRegistration(event)">
 
           <!-- SECTION 1 -->
           <div class="reg-section">
@@ -1194,16 +1204,6 @@ nav a.active::after{width:100%;}
               <label for="pVillage">Village / Town</label>
               <input type="text" id="pVillage" name="pVillage" placeholder="Your village or town">
             </div>
-
-            <div class="form-group">
-              <label>Copy of National ID</label>
-              <label class="file-upload" for="pIdFile">
-                Click to upload a copy of your National ID (front and back)
-                <input type="file" id="pIdFile" name="pIdFile" accept="image/*,.pdf" onchange="document.getElementById('idFileName').textContent = this.files.length ? this.files[0].name : '';">
-                <span class="fname" id="idFileName"></span>
-              </label>
-              <p class="reg-note" style="margin-top:10px;">Original copies of your National ID must still be produced in person during registration.</p>
-            </div>
           </div>
 
           <!-- SECTION 3 -->
@@ -1272,7 +1272,7 @@ nav a.active::after{width:100%;}
             </div>
 
             <div class="checkbox-row">
-              <input type="checkbox" id="declare" name="declare" required>
+              <input type="checkbox" id="declare" name="declare" value="Yes" required>
               <label for="declare">I hereby declare that I have read and understood the <a href="faq.html">terms and conditions</a> of Mwanga Comforts appearing on this website, and accept the same. I confirm that I have submitted the correct information to the best of my knowledge.</label>
             </div>
 
@@ -1287,9 +1287,9 @@ nav a.active::after{width:100%;}
               </div>
             </div>
 
-            <button type="submit" class="form-submit">Submit Registration</button>
-            <p class="form-note" id="regSuccess" style="display:none;color:var(--burgundy);font-weight:bold;">Thank you — your registration has been noted. Our team will contact you to complete the process and collect your original National ID copies.</p>
-            <p class="form-note">This form does not send automatically — connect it to your preferred email or CRM service to activate submissions.</p>
+            <button type="submit" class="form-submit" id="regSubmitBtn">Submit Registration</button>
+            <p class="form-note" id="regSuccess" style="display:none;color:var(--burgundy);font-weight:bold;">Thank you — your registration has been sent. Our team will contact you to complete the process and collect your original National ID copies.</p>
+            <p class="form-note" id="regError" style="display:none;color:#8B2942;font-weight:bold;">Something went wrong sending your registration. Please try again, or contact us directly on 0750 858 282.</p>
           </div>
 
         </form>
@@ -1339,6 +1339,44 @@ nav a.active::after{width:100%;}
 </footer>
 
 <script>
+  // EmailJS setup — replace the three placeholders below with your own EmailJS values
+  (function(){
+    emailjs.init({ publicKey: "pcHUloRmu0mYJJBbB" });
+  })();
+
+  function sendRegistration(e){
+    e.preventDefault();
+    const form = document.getElementById('registrationForm');
+    const btn = document.getElementById('regSubmitBtn');
+    const successMsg = document.getElementById('regSuccess');
+    const errorMsg = document.getElementById('regError');
+
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+    const originalText = btn.textContent;
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    emailjs.sendForm('service_xpchpq7', 'template_qn0psxd', form)
+      .then(function(){
+        form.reset();
+        depCount = 0;
+        document.getElementById('depRows').innerHTML = '';
+        for(let i = 0; i < 3; i++) addDependantRow();
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function(err){
+        console.error('EmailJS error:', err);
+        errorMsg.style.display = 'block';
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .finally(function(){
+        btn.textContent = originalText;
+        btn.disabled = false;
+      });
+  }
+
   // dependants table
   const MAX_DEP = 12;
   let depCount = 0;

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Mwanga Comforts</title>
-<meta name="description" content="Learn about Mwanga Comforts — a member-based welfare support program standing with Kenyan families through hospitalization, childbirth, loss and education needs.">
+<title>Job Alerts | Mwanga Comforts</title>
+<meta name="description" content="Current job openings and career opportunities with Mwanga Comforts across our regional offices in Kenya.">
 <style>
 
   :root{
@@ -842,6 +842,76 @@ nav a.active::after{width:100%;}
   margin-top:20px;
 }
 
+  /* ---------- job listings ---------- */
+  .job-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 30px;
+    margin-bottom:20px;
+    transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  }
+  .job-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow);
+    border-color:var(--gold);
+  }
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .job-head h3{font-size:1.1rem;color:var(--burgundy-dark);}
+  .job-date{font-size:0.78rem;color:var(--ink-soft);white-space:nowrap;}
+  .job-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .job-tag{
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-weight:bold;
+    padding:5px 12px;
+    border-radius:20px;
+    background:var(--cream-alt);
+    color:var(--burgundy);
+  }
+  .job-tag.location{background:rgba(176,138,62,0.14);color:var(--gold);}
+  .job-card p{font-size:0.92rem;margin-bottom:18px;}
+  .job-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .job-actions .btn{padding:10px 22px;font-size:0.84rem;}
+
+  .no-openings{
+    text-align:center;
+    padding:60px 30px;
+    background:var(--white);
+    border:1px dashed var(--line);
+    border-radius:4px;
+  }
+  .no-openings h3{font-size:1.1rem;margin-bottom:10px;}
+  .no-openings p{font-size:0.92rem;max-width:440px;margin:0 auto;}
+
+  .alert-banner{
+    background:var(--burgundy);
+    color:var(--cream);
+    border-radius:4px;
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .alert-banner h3{color:var(--white);font-size:1.05rem;margin-bottom:4px;}
+  .alert-banner p{color:rgba(250,245,236,0.8);font-size:0.88rem;}
+
 </style>
 </head>
 <body>
@@ -855,11 +925,11 @@ nav a.active::after{width:100%;}
     <nav id="siteNav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="plans.html">Plans</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="jobs.html" class="active">Jobs</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html" class="nav-cta">Become a Member</a></li>
       </ul>
@@ -874,154 +944,112 @@ nav a.active::after{width:100%;}
 
   <section class="page-hero">
     <div class="container reveal">
-      <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
-      <span class="eyebrow">Who We Are</span>
-      <h1>Standing with families, one moment at a time</h1>
-      <p class="lead">Mwanga Comforts is a member-based welfare support program built around the real needs of Kenyan families — healthcare, dignity in loss, education, and financial relief.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container mission-grid">
-      <div class="reveal">
-        <span class="eyebrow">Our Story</span>
-        <h2>Community welfare, organized with care</h2>
-        <p>Mwanga Comforts was created because life's most important moments — a hospital admission, a new baby, the loss of a loved one, or a child's school fees — often arrive without warning. We bring members together into one welfare community so that, when a need arises, the burden of sudden costs is shared, not carried alone.</p>
-        <p style="margin-top:16px;">Through structured membership grades and clearly defined cover plans, every member knows exactly what support is available to them and their family, at every stage of life.</p>
-      </div>
-      <div class="mission-panel reveal">
-        <span class="eyebrow">Our Mission</span>
-        <h2>Tuangaze mbele pamoja</h2>
-        <p>"Let's shine forward, together." We exist to give members dignity, care, and peace of mind during hospitalization, childbirth, bereavement, and their children's education — so families can face what life brings with confidence rather than financial fear.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt-bg" id="terms">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Terms &amp; Conditions</span>
-        <h2>Our Terms and Conditions</h2>
-        <p>A clear outline of how membership, cover plans and claims work. Tap each item to read the full condition.</p>
-      </div>
-      <div class="accordion reveal">
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Mwanga Afya Cover — inpatient services only</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover only caters for inpatient services.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Active subscription requirement</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must be actively remitting their monthly subscriptions, including for the month of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Qualifying period for Afya Cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must have been with the welfare for a period of 4 months for purposes of Mwanga Afya Cover, from the first date of remitting their first monthly subscription.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Qualifying period for Farewell Cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must have been with the welfare for a period of 4 months for purposes of the Mwanga Farewell Cover scheme, from the first date of remitting their first monthly subscription. A member who is 70 years and above must have been with the welfare for a period of 6 months for purposes of the Farewell Cover scheme.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Next of kin for members above 70 years</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The next of kin for members who are above 70 years must also be active members of the welfare, either separately or jointly.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>How the annual maximum is shared</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available in Mwanga Afya Cover will be divided among the beneficiaries, with each beneficiary having an equal share.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>First admission top-up</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">For the first hospital admission, Mwanga Comforts will top up the total members' contribution with Ksh 4,000 to be given to the member where the bill exceeds the members' total contribution. This rule applies to members with less than Ksh 15,000 in their accounts.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Payout ratio — Grades 1, 2, 6 and 7</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available will be paid in the ratio of 30:30:40 in case of any admission for Grades 1, 2, 6 and 7, whose total contribution is more than Ksh 15,000 at the point of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Payout ratio — Grades 3, 4, 5, 8 and 9</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available will be paid in the ratio of 40:30:30 in case of any admission for Grades 3, 4, 5, 8 and 9, whose total contribution is more than Ksh 15,000 at the point of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Return patients within 3 months</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">For return patients admitted within a period of less than 3 months, Mwanga Comforts shall only give Ksh 2,000 in addition to half the members' contribution, for members whose contributions are below Ksh 15,000. This is translated in the ratios of 15:15:20 and 20:15:15 respectively.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Maternity cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover fully covers maternity costs under the Maternity program, with additional benefits, for members who have been with us for 12 months.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Claiming Afya Cover after discharge</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover should be claimed within 72 hours after discharge and not more than 7 working days thereafter.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Default period</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The default period for both Mwanga Afya Cover and Mwanga Farewell Cover is 30 days, exclusive of the month of need.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Grace period after a default</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">In case of any default in monthly subscription, the grace period for qualification on services will resume afresh from the new date of monthly subscription: 3 months for Mwanga Afya Cover, 4 months for the Mwanga Farewell Cover scheme for members under 70 years, and 6 months for the Farewell Cover scheme for members over 70 years — subject to waivers as may be communicated from time to time.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Funeral claim limits</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Comforts shall only cater for three funerals per family per year. The funerals, unless accident-related, must be spaced four months apart.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Services, not cash</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Comforts shall not convert its services to cash or monetary equivalent. Only the listed services shall be provided.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Members of similar organizations</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">In cases where a member belongs to another organization offering similar services as Mwanga Comforts, the same services shall not be offered or converted to monetary value. Mwanga Comforts shall only provide additional services not offered by the said organization.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Notice period for funeral claims</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Maisha Companion shall attend to all qualified funeral claims reported at least 72 hours prior to the date of burial. For reports falling below 72 hours, the family will be requested to push the burial date forward to accommodate the required notice for service facilitation and logistics.</div></div>
-        </div>
-      </div>
-      <p class="table-note" style="text-align:center;margin-top:20px;">For frequently asked questions grouped by topic, visit our <a href="faq.html" style="color:var(--burgundy);font-weight:bold;">full FAQ page</a>.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> / Jobs</div>
+      <span class="eyebrow">Careers At Mwanga Comforts</span>
+      <h1>Job Alerts</h1>
+      <p class="lead">Current openings across our regional offices. Check back regularly — new opportunities are posted here as they become available.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
+
+      <div class="alert-banner reveal">
+        <div>
+          <h3>Want to be notified of new openings?</h3>
+          <p>Send us your details and we'll reach out when a role matching your interest opens up.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="background:var(--gold);color:var(--burgundy-dark);">Get Job Alerts</a>
+      </div>
+
+      <!--
+        HOW TO ADD A NEW JOB LISTING
+        Duplicate one .job-card block below, then edit the title, tags,
+        posted date, description and the "Apply Now" link (mailto or a link
+        to a specific contact.html section). Remove the .no-openings block
+        below once at least one real listing is added.
+      -->
+
+      <div class="job-card reveal">
+        <div class="job-head">
+          <h3>Regional Field Officer — Example Listing</h3>
+          <span class="job-date">Posted: Replace with date</span>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag location">Kakamega</span>
+          <span class="job-tag">Full-Time</span>
+          <span class="job-tag">Field Operations</span>
+        </div>
+        <p>Sample listing — replace this description with the real role summary: responsibilities, who the role reports to, and what a typical week looks like in the field.</p>
+        <div class="job-actions">
+          <a href="mailto:mwangacomforts@gmail.com?subject=Application%20-%20Regional%20Field%20Officer" class="btn btn-primary">Apply Now</a>
+          <a href="contact.html" class="btn btn-ghost">Ask a Question</a>
+        </div>
+      </div>
+
+      <div class="job-card reveal">
+        <div class="job-head">
+          <h3>Membership Registration Officer — Example Listing</h3>
+          <span class="job-date">Posted: Replace with date</span>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag location">Nairobi</span>
+          <span class="job-tag">Full-Time</span>
+          <span class="job-tag">Administration</span>
+        </div>
+        <p>Sample listing — replace this description with the real role summary, required qualifications, and application deadline.</p>
+        <div class="job-actions">
+          <a href="mailto:mwangacomforts@gmail.com?subject=Application%20-%20Membership%20Registration%20Officer" class="btn btn-primary">Apply Now</a>
+          <a href="contact.html" class="btn btn-ghost">Ask a Question</a>
+        </div>
+      </div>
+
+      <!--
+        Uncomment and use this block instead when there are currently no
+        open roles, and remove or comment out the .job-card examples above.
+
+        <div class="no-openings reveal">
+          <h3>No open positions right now</h3>
+          <p>We don't have any active vacancies at the moment, but new roles are posted here regularly. Check back soon, or reach out to be notified when one opens.</p>
+        </div>
+      -->
+
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">How It Works</span>
-        <h2>From registration to receiving support</h2>
+        <span class="eyebrow">How To Apply</span>
+        <h2>Our hiring process</h2>
       </div>
       <div class="steps-list reveal">
         <div class="step-row">
           <div class="step-num"></div>
           <div>
-            <h4>Register as a member</h4>
-            <p>Be 18 years or older with a valid national ID, fill in the membership application form, and pay the one-time Ksh 200 registration fee.</p>
+            <h4>Submit your application</h4>
+            <p>Send your CV and a short cover note to our email, referencing the role title, or apply directly from a listing above.</p>
           </div>
         </div>
         <div class="step-row">
           <div class="step-num"></div>
           <div>
-            <h4>Choose your membership grade</h4>
-            <p>Select the category that matches your household — single, couple, nuclear family, or family with dependent parents — from Grades 1 to 9.</p>
+            <h4>Initial screening</h4>
+            <p>Our team reviews applications against the role's requirements and shortlists candidates for interview.</p>
           </div>
         </div>
         <div class="step-row">
           <div class="step-num"></div>
           <div>
-            <h4>Remit your monthly subscription</h4>
-            <p>Pay your monthly contribution via M-Pesa Paybill to stay active and in good standing under your chosen plan.</p>
+            <h4>Interview</h4>
+            <p>Shortlisted candidates are invited for an interview, in person at a regional office or by phone.</p>
           </div>
         </div>
         <div class="step-row">
           <div class="step-num"></div>
           <div>
-            <h4>Complete the qualifying period</h4>
-            <p>Each cover plan has a waiting period — typically four months — from your first subscription before a claim becomes valid.</p>
-          </div>
-        </div>
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Receive support when you need it</h4>
-            <p>Report a hospitalization or bereavement claim within the required notice period, and Mwanga Comforts steps in with the services and benefits under your plan.</p>
+            <h4>Offer and onboarding</h4>
+            <p>Successful candidates receive an offer and are guided through onboarding into their regional team.</p>
           </div>
         </div>
       </div>
@@ -1031,12 +1059,11 @@ nav a.active::after{width:100%;}
   <section class="payment-band">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow" style="color:var(--gold-light);">Ready To Join</span>
-        <h2>Become part of the Mwanga Comforts family</h2>
-        <p>Register today and take the first step toward peace of mind for you and your household.</p>
+        <span class="eyebrow" style="color:var(--gold-light);">Have A Question About A Role?</span>
+        <h2>Reach out to our team</h2>
       </div>
       <div style="text-align:center;">
-        <a href="contact.html" class="btn btn-primary">Become a Member</a>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
       </div>
     </div>
   </section>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Mwanga Comforts</title>
-<meta name="description" content="Learn about Mwanga Comforts — a member-based welfare support program standing with Kenyan families through hospitalization, childbirth, loss and education needs.">
+<title>Gallery &amp; Field Reports | Mwanga Comforts</title>
+<meta name="description" content="Photos and field reports from Mwanga Comforts activities across our regional offices in Kenya.">
 <style>
 
   :root{
@@ -842,6 +842,101 @@ nav a.active::after{width:100%;}
   margin-top:20px;
 }
 
+  /* ---------- gallery ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .gallery-item{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  .gallery-item img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 0.5s var(--ease);
+  }
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-item::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(49,14,25,0) 55%, rgba(49,14,25,0.7) 100%);
+  }
+  .gallery-caption{
+    position:absolute;
+    left:16px;bottom:12px;
+    z-index:2;
+    color:var(--white);
+    font-size:0.82rem;
+    font-weight:bold;
+  }
+  .gallery-item[data-hidden="true"]{display:none;}
+
+  @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.gallery-grid{grid-template-columns:1fr;}}
+
+  /* lightbox */
+  .lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(49,14,25,0.92);
+    z-index:300;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{
+    max-width:100%;
+    max-height:85vh;
+    border-radius:4px;
+    box-shadow:0 30px 70px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:absolute;
+    top:24px;right:28px;
+    color:var(--white);
+    font-size:1.8rem;
+    background:none;
+    border:none;
+    cursor:pointer;
+    line-height:1;
+  }
+  .lightbox-caption{
+    position:absolute;
+    bottom:30px;left:0;right:0;
+    text-align:center;
+    color:rgba(250,245,236,0.85);
+    font-size:0.9rem;
+  }
+
+  /* ---------- field reports ---------- */
+  .report-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 28px;
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  }
+  .report-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold);}
+  .report-card h3{font-size:1rem;color:var(--burgundy-dark);margin-bottom:6px;}
+  .report-card .meta{font-size:0.78rem;color:var(--gold);font-weight:bold;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;}
+  .report-card p{font-size:0.88rem;max-width:520px;}
+  .report-card .btn{padding:10px 20px;font-size:0.82rem;white-space:nowrap;}
+
 </style>
 </head>
 <body>
@@ -855,10 +950,10 @@ nav a.active::after{width:100%;}
     <nav id="siteNav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="plans.html">Plans</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
         <li><a href="jobs.html">Jobs</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html" class="nav-cta">Become a Member</a></li>
@@ -874,174 +969,117 @@ nav a.active::after{width:100%;}
 
   <section class="page-hero">
     <div class="container reveal">
-      <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
-      <span class="eyebrow">Who We Are</span>
-      <h1>Standing with families, one moment at a time</h1>
-      <p class="lead">Mwanga Comforts is a member-based welfare support program built around the real needs of Kenyan families — healthcare, dignity in loss, education, and financial relief.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container mission-grid">
-      <div class="reveal">
-        <span class="eyebrow">Our Story</span>
-        <h2>Community welfare, organized with care</h2>
-        <p>Mwanga Comforts was created because life's most important moments — a hospital admission, a new baby, the loss of a loved one, or a child's school fees — often arrive without warning. We bring members together into one welfare community so that, when a need arises, the burden of sudden costs is shared, not carried alone.</p>
-        <p style="margin-top:16px;">Through structured membership grades and clearly defined cover plans, every member knows exactly what support is available to them and their family, at every stage of life.</p>
-      </div>
-      <div class="mission-panel reveal">
-        <span class="eyebrow">Our Mission</span>
-        <h2>Tuangaze mbele pamoja</h2>
-        <p>"Let's shine forward, together." We exist to give members dignity, care, and peace of mind during hospitalization, childbirth, bereavement, and their children's education — so families can face what life brings with confidence rather than financial fear.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt-bg" id="terms">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Terms &amp; Conditions</span>
-        <h2>Our Terms and Conditions</h2>
-        <p>A clear outline of how membership, cover plans and claims work. Tap each item to read the full condition.</p>
-      </div>
-      <div class="accordion reveal">
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Mwanga Afya Cover — inpatient services only</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover only caters for inpatient services.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Active subscription requirement</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must be actively remitting their monthly subscriptions, including for the month of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Qualifying period for Afya Cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must have been with the welfare for a period of 4 months for purposes of Mwanga Afya Cover, from the first date of remitting their first monthly subscription.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Qualifying period for Farewell Cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">A member must have been with the welfare for a period of 4 months for purposes of the Mwanga Farewell Cover scheme, from the first date of remitting their first monthly subscription. A member who is 70 years and above must have been with the welfare for a period of 6 months for purposes of the Farewell Cover scheme.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Next of kin for members above 70 years</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The next of kin for members who are above 70 years must also be active members of the welfare, either separately or jointly.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>How the annual maximum is shared</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available in Mwanga Afya Cover will be divided among the beneficiaries, with each beneficiary having an equal share.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>First admission top-up</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">For the first hospital admission, Mwanga Comforts will top up the total members' contribution with Ksh 4,000 to be given to the member where the bill exceeds the members' total contribution. This rule applies to members with less than Ksh 15,000 in their accounts.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Payout ratio — Grades 1, 2, 6 and 7</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available will be paid in the ratio of 30:30:40 in case of any admission for Grades 1, 2, 6 and 7, whose total contribution is more than Ksh 15,000 at the point of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Payout ratio — Grades 3, 4, 5, 8 and 9</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The annual maximum available will be paid in the ratio of 40:30:30 in case of any admission for Grades 3, 4, 5, 8 and 9, whose total contribution is more than Ksh 15,000 at the point of admission.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Return patients within 3 months</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">For return patients admitted within a period of less than 3 months, Mwanga Comforts shall only give Ksh 2,000 in addition to half the members' contribution, for members whose contributions are below Ksh 15,000. This is translated in the ratios of 15:15:20 and 20:15:15 respectively.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Maternity cover</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover fully covers maternity costs under the Maternity program, with additional benefits, for members who have been with us for 12 months.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Claiming Afya Cover after discharge</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Afya Cover should be claimed within 72 hours after discharge and not more than 7 working days thereafter.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Default period</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">The default period for both Mwanga Afya Cover and Mwanga Farewell Cover is 30 days, exclusive of the month of need.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Grace period after a default</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">In case of any default in monthly subscription, the grace period for qualification on services will resume afresh from the new date of monthly subscription: 3 months for Mwanga Afya Cover, 4 months for the Mwanga Farewell Cover scheme for members under 70 years, and 6 months for the Farewell Cover scheme for members over 70 years — subject to waivers as may be communicated from time to time.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Funeral claim limits</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Comforts shall only cater for three funerals per family per year. The funerals, unless accident-related, must be spaced four months apart.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Services, not cash</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Mwanga Comforts shall not convert its services to cash or monetary equivalent. Only the listed services shall be provided.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Members of similar organizations</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">In cases where a member belongs to another organization offering similar services as Mwanga Comforts, the same services shall not be offered or converted to monetary value. Mwanga Comforts shall only provide additional services not offered by the said organization.</div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-trigger"><span>Notice period for funeral claims</span><span class="plus">+</span></button>
-          <div class="acc-panel"><div class="acc-panel-inner">Maisha Companion shall attend to all qualified funeral claims reported at least 72 hours prior to the date of burial. For reports falling below 72 hours, the family will be requested to push the burial date forward to accommodate the required notice for service facilitation and logistics.</div></div>
-        </div>
-      </div>
-      <p class="table-note" style="text-align:center;margin-top:20px;">For frequently asked questions grouped by topic, visit our <a href="faq.html" style="color:var(--burgundy);font-weight:bold;">full FAQ page</a>.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> / Gallery</div>
+      <span class="eyebrow">From The Field</span>
+      <h1>Gallery &amp; Field Reports</h1>
+      <p class="lead">Photos and reports from our registration drives, member support activities, and regional offices across Kenya.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
+
       <div class="section-head center reveal">
-        <span class="eyebrow">How It Works</span>
-        <h2>From registration to receiving support</h2>
+        <span class="eyebrow">Photo Gallery</span>
+        <h2>Moments from our work in the field</h2>
       </div>
-      <div class="steps-list reveal">
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Register as a member</h4>
-            <p>Be 18 years or older with a valid national ID, fill in the membership application form, and pay the one-time Ksh 200 registration fee.</p>
-          </div>
+
+      <div class="faq-tabs reveal">
+        <button class="faq-tab active" data-gcat="all">All Photos</button>
+        <button class="faq-tab" data-gcat="community">Community Outreach</button>
+        <button class="faq-tab" data-gcat="registration">Registration Drives</button>
+        <button class="faq-tab" data-gcat="support">Member Support</button>
+        <button class="faq-tab" data-gcat="events">Events</button>
+      </div>
+
+      <!--
+        HOW TO ADD A NEW PHOTO
+        Duplicate one .gallery-item block below. Set data-gcat to one of:
+        community, registration, support, events (matches a filter tab above).
+        Replace the image src (drop the real file into the images/gallery/
+        folder) and the caption text.
+      -->
+
+      <div class="gallery-grid reveal-stagger">
+        <div class="gallery-item" data-gcat="community" onclick="openLightbox(this)">
+          <img src="images/4.jpeg" alt="Community outreach event">
         </div>
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Choose your membership grade</h4>
-            <p>Select the category that matches your household — single, couple, nuclear family, or family with dependent parents — from Grades 1 to 9.</p>
-          </div>
+        <div class="gallery-item" data-gcat="registration" onclick="openLightbox(this)">
+          <img src="images/5.jpeg" alt="Member registration drive">
         </div>
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Remit your monthly subscription</h4>
-            <p>Pay your monthly contribution via M-Pesa Paybill to stay active and in good standing under your chosen plan.</p>
-          </div>
+        <div class="gallery-item" data-gcat="support" onclick="openLightbox(this)">
+          <img src="images/9.jpeg" alt="Member support visit">
         </div>
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Complete the qualifying period</h4>
-            <p>Each cover plan has a waiting period — typically four months — from your first subscription before a claim becomes valid.</p>
-          </div>
+        <div class="gallery-item" data-gcat="events" onclick="openLightbox(this)">
+          <img src="images/11.jpeg" alt="Community event">
         </div>
-        <div class="step-row">
-          <div class="step-num"></div>
-          <div>
-            <h4>Receive support when you need it</h4>
-            <p>Report a hospitalization or bereavement claim within the required notice period, and Mwanga Comforts steps in with the services and benefits under your plan.</p>
-          </div>
+        <div class="gallery-item" data-gcat="community" onclick="openLightbox(this)">
+          <img src="images/14.jpeg" alt="Community outreach event">
+        </div>
+        <div class="gallery-item" data-gcat="registration" onclick="openLightbox(this)">
+          <img src="images/3.jpeg" alt="Member registration drive">
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Field Reports</span>
+        <h2>Updates from our regional teams</h2>
+        <p>Periodic reports summarizing activity, membership growth, and support delivered across our regions.</p>
+      </div>
+
+      <!--
+        HOW TO ADD A NEW REPORT
+        Duplicate one .report-card block below. Link "href" to the actual
+        PDF once it's uploaded (e.g. images/reports/q1-2026-report.pdf),
+        or to a page with the full write-up.
+      -->
+
+      <div class="report-card reveal">
+        <div>
+          <div class="meta">Replace with region &amp; period</div>
+          <h3>Example Field Report Title</h3>
+          <p>Short summary of what this report covers — replace with a one or two sentence excerpt of the real report.</p>
+        </div>
+        <a href="#" class="btn btn-primary">Read Report</a>
+      </div>
+
+      <div class="report-card reveal">
+        <div>
+          <div class="meta">Replace with region &amp; period</div>
+          <h3>Example Field Report Title</h3>
+          <p>Short summary of what this report covers — replace with a one or two sentence excerpt of the real report.</p>
+        </div>
+        <a href="#" class="btn btn-primary">Read Report</a>
+      </div>
+
     </div>
   </section>
 
   <section class="payment-band">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow" style="color:var(--gold-light);">Ready To Join</span>
-        <h2>Become part of the Mwanga Comforts family</h2>
-        <p>Register today and take the first step toward peace of mind for you and your household.</p>
+        <span class="eyebrow" style="color:var(--gold-light);">Want To Be Featured?</span>
+        <h2>Share your Mwanga Comforts story</h2>
+        <p>If you'd like to share a photo or story from your community for our gallery, get in touch.</p>
       </div>
       <div style="text-align:center;">
-        <a href="contact.html" class="btn btn-primary">Become a Member</a>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
       </div>
     </div>
   </section>
 
 </main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <footer>
   <div class="container">
@@ -1103,16 +1141,16 @@ nav a.active::after{width:100%;}
     });
   });
 
-  // FAQ category filter (only present on faq.html)
-  const faqTabs = document.querySelectorAll('.faq-tab');
-  if(faqTabs.length){
-    faqTabs.forEach(tab=>{
+  // gallery category filter
+  const galleryTabs = document.querySelectorAll('.faq-tab');
+  if(galleryTabs.length){
+    galleryTabs.forEach(tab=>{
       tab.addEventListener('click', ()=>{
-        faqTabs.forEach(t=>t.classList.remove('active'));
+        galleryTabs.forEach(t=>t.classList.remove('active'));
         tab.classList.add('active');
-        const cat = tab.dataset.cat;
-        document.querySelectorAll('.acc-item').forEach(item=>{
-          if(cat === 'all' || item.dataset.cat === cat){
+        const cat = tab.dataset.gcat;
+        document.querySelectorAll('.gallery-item').forEach(item=>{
+          if(cat === 'all' || item.dataset.gcat === cat){
             item.dataset.hidden = "false";
           } else {
             item.dataset.hidden = "true";
@@ -1120,6 +1158,21 @@ nav a.active::after{width:100%;}
         });
       });
     });
+  }
+
+  // lightbox
+  function openLightbox(el){
+    const img = el.querySelector('img');
+    const caption = el.querySelector('.gallery-caption');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightboxCaption').textContent = caption ? caption.textContent : '';
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')){
+      document.getElementById('lightbox').classList.remove('open');
+    }
   }
 
 </script>
